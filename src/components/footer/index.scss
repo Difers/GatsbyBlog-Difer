@@ -1,27 +1,34 @@
 @import '../../styles/variables.scss';
 
 .footer {
-  padding-top: 52px;
+  padding-bottom: 52px;
   text-align: center;
   font-size: 14px;
   
   a {
     text-decoration: none !important;
+    margin: 0 auto;
   }
 
+  img {
+    margin: 0 auto;
+    vertical-align: middle;
+  }
+
+  span{
+    vertical-align: middle;
+  }
 }
 
-.testIMG{ 
-  float:left; 
-  display:inline; 
-  margin-top:10px; 
-  margin-left:215px; 
-} 
-.testTXT{ 
-  float:left; 
-  display:inline; 
-  margin-top:15px; 
-  margin-left:7px; 
+.wechart2{
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+	background: #fff;
+	margin-bottom: 10px;
+}
+.wechart2 img{
+	width: 30px;
 }
 
 
