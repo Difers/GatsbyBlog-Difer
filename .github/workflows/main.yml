@@ -1,30 +1,33 @@
-name: Upload to COS
+name: CI
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Install coscmd
-      run: sudo pip install coscmd
-    - name: Configure coscmd
-      env:
-        SECRET_ID: ${{AKIDQaT6i392IHyTqPLIZZIrTpvlT8ZkvHdh}}
-        SECRET_KEY: ${{xmVyuZdPxEEG1ygGetrYyA8rTHq778vW }}
-        BUCKET: blog-1251208262
-        REGION: ap-beijing
-      run: coscmd config -a $SECRET_ID -s $SECRET_KEY -b $BUCKET -r $REGION
-      
-    - name: Setup node
-      uses: actions/setup-node@v1
-      with:
-        node-version: "10.x"
+      - name: Checkout master
+        uses: actions/checkout@v2
+        with:
+          ref: master
 
-    - name: Build project
-      run: yarn && yarn build
-    - name: Upload
-      run: coscmd upload -rs --delete -f ./ / --ignore "./.git/*"
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "10.x"
+
+      - name: Build project
+        run: yarn && yarn build
+
+      - name: Upload COS
+        uses: zkqiang/tencent-cos-action@v0.1.0
+        with:
+          args: delete -r -f / && upload -r ./dist/ /
+          secret_id: ${{ secrets.SECRET_ID }}
+          secret_key: ${{xmVyuZdPxEEG1ygGetrYyA8rTHq778vW}}
+          bucket: ${{ secrets.BUCKET }}
+          region: ap-shanghai
