@@ -13,8 +13,8 @@ jobs:
       run: sudo pip install coscmd
     - name: Configure coscmd
       env:
-        SECRET_ID: ${{ AKIDQaT6i392IHyTqPLIZZIrTpvlT8ZkvHdh}}
-        SECRET_KEY: ${{ xmVyuZdPxEEG1ygGetrYyA8rTHq778vW }}
+        SECRET_ID: ${{AKIDQaT6i392IHyTqPLIZZIrTpvlT8ZkvHdh}}
+        SECRET_KEY: ${{xmVyuZdPxEEG1ygGetrYyA8rTHq778vW }}
         BUCKET: blog-1251208262
         REGION: ap-beijing
       run: coscmd config -a $SECRET_ID -s $SECRET_KEY -b $BUCKET -r $REGION
