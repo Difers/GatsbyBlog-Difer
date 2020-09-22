@@ -1,4 +1,4 @@
-name: Gatsby Publish
+name: cos
 
 on:
   push:
@@ -8,9 +8,26 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v1
-      - uses: enriikke/gatsby-gh-pages-action@v2
+      - name: Checkout master
+        uses: actions/checkout@v2
         with:
-          access-token: ${{ secrets.MY_GITHUB_TOKEN }}
-          deploy-branch: deploy 
+          ref: master
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+          
+      - name: Build project
+        run: yarn && yarn build
+        
+      - name: Upload COS
+        uses: zkqiang/tencent-cos-action@v0.1.0
+        with:
+          args: delete -r -f / && upload -r ./public / --ignore *.map
+          secret_id: ${{ secrets.SECRET_ID }}
+          secret_key: ${{ secrets.SECRET_KEY_MY }}
+          bucket: ${{ secrets.BUCKET }}
+          region: ap-beijing
