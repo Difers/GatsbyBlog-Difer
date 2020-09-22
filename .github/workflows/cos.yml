@@ -1,0 +1,30 @@
+name: cos
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v2
+        with:
+          ref: master
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+
+      - name: Upload COS
+        uses: zkqiang/tencent-cos-action@v0.1.0
+        with:
+          args: delete -r -f / && upload -r ./ /
+          secret_id: ${{ secrets.SECRET_ID }}
+          secret_key: ${{ SECRET_KEY_MY }}
+          bucket: ${{ secrets.BUCKET }}
+          region: ap-beijing
