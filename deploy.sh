@@ -12,7 +12,7 @@ if [ -z "$GITHUB_TOKEN" ]; then
   githubUrl=git@github.com:Difers/Difer.git
 else
   msg='来自github action的自动部署'
-  githubUrl=https://github.com/Difers/Difer.git
+  githubUrl=git@github.com:Difers/Difer.git
   git config --global user.name "Difers"
   git config --global user.email "c7070655110@gmail.com"
 fi
@@ -26,7 +26,7 @@ git push -f $githubUrl master:master # 推送到github
 if [ -z "$CODING_TOKEN" ]; then  # -z 字符串 长度为0则为true；$CODING_TOKEN来自于github仓库`Settings/Secrets`设置的私密环境变量
   codingUrl=git@e.coding.net:difer/Difer.git
 else
-  codingUrl=https://e.coding.net/difer/Difer.git
+  codingUrl=git@github.com:Difers/Difer.git
 fi
 git add -A
 git commit -m "${msg}"
