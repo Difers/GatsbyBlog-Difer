@@ -1,10 +1,10 @@
-#!/usr/bin/env sh
+# !/usr/bin/env sh
 # 确保脚本抛出遇到的错误
 set -e
 yarn build # 生成静态文件
-ls
 cd public # 进入生成的文件夹
-find . -name "*.map" -type f -print -exec rm -rf {} \; 
+find . -type f -name '*.map' | xargs rm
+echo come
 # deploy to github
 echo 'difer.life' > CNAME
 if [ -z "$GITHUB_TOKEN" ]; then
