@@ -31,3 +31,6 @@ fi
 git add -A
 git commit -m "${msg}"
 git push -f $codingUrl master # 推送到coding
+
+cd -
+rm -rf public
