@@ -6,7 +6,7 @@ cd public # 进入生成的文件夹
 find . -type f -name '*.map' | xargs rm
 echo come
 # deploy to github
-echo 'difer.life' > CNAME
+# echo 'difer.life' > CNAME
 if [ -z "$GITHUB_TOKEN" ]; then
   msg='deploy'
   githubUrl=git@github.com:Difers/Difer.git
@@ -22,7 +22,7 @@ git commit -m "${msg}"
 git push -f $githubUrl master:master # 推送到github
 
 # deploy to coding
-echo 'difer.life' > CNAME  # 自定义域名
+# echo 'difer.life' > CNAME  # 自定义域名
 if [ -z "$CODING_TOKEN" ]; then  # -z 字符串 长度为0则为true；$CODING_TOKEN来自于github仓库`Settings/Secrets`设置的私密环境变量
   codingUrl=git@e.coding.net:difer/Difer.git
 else
