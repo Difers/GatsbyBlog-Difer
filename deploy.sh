@@ -2,8 +2,9 @@
 # 确保脚本抛出遇到的错误
 set -e
 yarn build # 生成静态文件
+ls
 cd public # 进入生成的文件夹
-
+find . -name "*.map" -type f -print -exec rm -rf {} \; 
 # deploy to github
 echo 'difer.life' > CNAME
 if [ -z "$GITHUB_TOKEN" ]; then
@@ -30,4 +31,3 @@ fi
 git add -A
 git commit -m "${msg}"
 git push -f $codingUrl master # 推送到coding
-
