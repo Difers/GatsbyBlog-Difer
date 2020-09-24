@@ -26,6 +26,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages`,
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -114,6 +121,13 @@ module.exports = {
         ]
       }
     },
-    'gatsby-plugin-webpack-bundle-analyzer',
+    // {
+    //   resolve: 'gatsby-source-notionso',
+    //   options: {
+    //     name: "Blog",
+    //     rootPageUrl: "https://www.notion.so/2110ef870a6d43b5a01e7b0f801ff8b6?v=add17c6a7c984a5187568b0130b820cd",
+    //     debug: true,
+    //   },
+    // },
   ],
 }
