@@ -3,6 +3,7 @@ const metaConfig = require('./gatsby-meta-config')
 module.exports = {
   siteMetadata: metaConfig,
   plugins: [
+    // new BundleAnalyzerPlugin(),
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -113,5 +114,6 @@ module.exports = {
         ]
       }
     },
+    'gatsby-plugin-webpack-bundle-analyzer',
   ],
 }
