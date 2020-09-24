@@ -26,10 +26,10 @@ jobs: # 工作流
         run: bash deploy.sh # 执行的命令 
         # package.json 中添加 "deploy": "bash deploy.sh"
 
-      - name: Trigger our build webhook on Netlify
-        run: curl -s -X POST "https://api.netlify.com/build_hooks/${TOKEN}"
-        env:
-          TOKEN: ${{ secrets.NETLIFY_CRON_BUILD_HOOK }}
+#       - name: Trigger our build webhook on Netlify
+#         run: curl -s -X POST "https://api.netlify.com/build_hooks/${TOKEN}"
+#         env:
+#           TOKEN: ${{ secrets.NETLIFY_CRON_BUILD_HOOK }}
       - name: Trigger our build hook on Vercil
         run: curl -X POST "https://api.vercel.com/v1/integrations/deploy/${TOKEN}"
         env:
