@@ -3,7 +3,7 @@ name: deploy
 # 在master分支发生push事件时触发。
 on: 
  schedule:
-    - cron:  '0 */14 * * *'
+    - cron:  '0 */12 * * *'
       
 jobs: # 工作流
   build:
