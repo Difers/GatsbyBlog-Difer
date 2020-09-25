@@ -29,9 +29,6 @@ jobs: # 工作流
       - name: cd static
         run: cd static
         
-      - name: ls
-        run: ls
-        
       - name: baiduPush
         run: bash baiduPush.sh difer.life
         # package.json 中添加 "deploy": "bash deploy.sh"
