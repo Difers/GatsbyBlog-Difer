@@ -25,6 +25,15 @@ jobs: # 工作流
           GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }} # toKen私密变量
           CODING_TOKEN: ${{ secrets.MY_CODING_TOKEN }} # 腾讯云开发者平台（coding）私密token
         run: bash deploy.sh # 执行的命令 
+        
+      - name: cd static
+        run: cd static
+        
+      - name: ls
+        run: ls
+        
+      - name: baiduPush
+        run: bash baiduPush.sh difer.life
         # package.json 中添加 "deploy": "bash deploy.sh"
 
 #       - name: Trigger our build webhook on Netlify
