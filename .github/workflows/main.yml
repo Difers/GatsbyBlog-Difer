@@ -30,7 +30,7 @@ jobs: # 工作流
         run: cd static
         
       - name: baiduPush
-        run: bash baiduPush.sh difer.life
+        run: bash baiduPush.sh www.difer.life
         # package.json 中添加 "deploy": "bash deploy.sh"
 
 #       - name: Trigger our build webhook on Netlify
