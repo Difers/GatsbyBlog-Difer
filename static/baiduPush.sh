@@ -1,5 +1,5 @@
 #!/bin/bash
-path=$(dirname "$PWD")"/.notion"
+path=$(dirname "$PWD")"/publish/.notion"
 echo $path;
  
 files=$(ls $path)
