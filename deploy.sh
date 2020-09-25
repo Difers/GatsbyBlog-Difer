@@ -21,7 +21,7 @@ fi
 git init
 git add -A
 git commit -m "${msg}"
-git push -f $githubUrl master:master # 推送到github
+git push $githubUrl master:master # 推送到github
 
 echo Start_in_Coding
 # deploy to coding
