@@ -3,8 +3,8 @@ name: deploy
 # 在master分支发生push事件时触发。
 on:
  push: 
- schedule:
-    - cron:  '0 */12 * * *'
+ repository_dispatch:
+    types: publish
       
 jobs: # 工作流
   build:
