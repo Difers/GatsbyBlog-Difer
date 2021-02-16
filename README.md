@@ -1,5 +1,4 @@
-# A blog with Gatsby + Notion + Netlify# A blog with Gatsby + Notion + Vercel
-
+# A blog with Gatsby + Notion + Netlify
 Just write in Notion and you will get a beautiful blog published automatically, So, Why not give up *hexo g, hexo d*, Do with me.
 
 **what you need**
